@@ -1,0 +1,22 @@
+<!-- provide your user with an interface to view the list of existing articles -->
+<section data-ng-controller="ArticlesController" data-ng-init="find()">
+  <h1>Articles</h1>
+  <ul>
+      <!-- use the ng-repeat directive to render a list of HTML elements, 
+      each representing a single article -->
+    <li data-ng-repeat="article in articles">
+      <a data-ng-href="#!/articles/{{article._id}}" data-ng-bind="article.title"></a>
+      <br>
+      <!-- displays each article's information using the ng-bind -->
+      <small data-ng-bind="article.created | date:'medium'"></small>
+      <small>/</small>
+      <small data-ng-bind="article.creator.fullName"></small>
+      <p data-ng-bind="article.content"></p>
+    </li>
+  </ul>
+  <!-- ng-hide directive to ask the user to create a new article in case
+  there are no existing articles -->
+ <div data-ng-hide="!articles || articles.length">
+    No articles yet, why don't you <a href="/#!/articles/create">create one</a>?
+  </div>
+</section>

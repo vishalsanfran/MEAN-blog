@@ -1,0 +1,18 @@
+<!-- provide your user with an interface to view an existing article -->
+<!-- controller's findOne() method to get an existing article with ng-init -->
+<section data-ng-controller="ArticlesController" data-ng-init="findOne()">
+  <h1 data-ng-bind="article.title"></h1>
+  <!-- set of buttons only visible to the article creator that will allow the 
+  creator to delete the article or navigate to the update-article view -->
+  <div data-ng-show="authentication.user._id == article.creator._id">
+    <a href="/#!/articles/{{article._id}}/edit">edit</a>
+    <a href="#" data-ng-click="delete();">delete</a>
+  </div>
+  <small>
+    <em>Posted on</em>
+    <em data-ng-bind="article.created | date:'mediumDate'"></em>
+    <em>by</em>
+    <em data-ng-bind="article.creator.fullName"></em>
+  </small>
+  <p data-ng-bind="article.content"></p>
+</section>

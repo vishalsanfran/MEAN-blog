@@ -1,0 +1,28 @@
+<!-- provide your user with an interface to update an existing article -->
+<!--  Since you need to load the article information before editing it, 
+your view uses the ng-init on findOne() -->
+<section data-ng-controller="ArticlesController" data-ng-init="findOne()">
+  <h1>Edit Article</h1>
+  <form data-ng-submit="update()" novalidate>
+    <div>
+      <label for="title">Title</label>
+      <div>
+        <input type="text" data-ng-model="article.title" id="title" placeholder="Title" required>
+      </div>
+    </div>
+    <div>
+      <label for="content">Content</label>
+      <div>
+          <!-- use the ng-model directive to bind the user input to the 
+          controller's scope.article object -->
+        <textarea data-ng-model="article.content" id="content" cols="30" rows="10" placeholder="Content"></textarea>
+      </div>
+    </div>
+    <div>
+      <input type="submit" value="Update">
+    </div>
+    <div data-ng-show="error">
+      <strong data-ng-bind="error"></strong>
+    </div>
+  </form>
+</section>
