@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:ng="http://angularjs.org">
+<head>
+  <title><%= title %></title>
+</head>
+<body>
+  
+  <%/* loads a template from a specified path, compiles it into a view, and 
+  then places the rendered result inside the directive DOM element */%>
+  <%/*<section ng-include="'example/views/example.client.view.html'"></section> */%>
+  
+  <%/* tells the AngularJS router which DOM element to use to render the routing
+  views. When the user navigates to a specified URL, AngularJS will render the 
+  template inside the DOM element marked with this directive */%>
+  <section ng-view></section>
+  
+  <script type="text/javascript">
+    window.user = <%- user || 'null' %>;
+  </script>
+
+  <%/* Include angularJS modules  */%>
+  <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+  <script type="text/javascript" src="/lib/angular/angular.js"></script>
+  <script type="text/javascript" src="/lib/angular-route/angular-route.js"></script>
+  <script type="text/javascript" src="/lib/angular-resource/angular-resource.js"></script>
+  
+  <%/* Load articles modules  */%>
+  <script type="text/javascript" src="/articles/articles.client.module.js"></script>
+  <script type="text/javascript" src="/articles/controllers/articles.client.controller.js"></script>
+  <script type="text/javascript" src="/articles/services/articles.client.service.js"></script>
+  <script type="text/javascript" src="/articles/config/articles.client.routes.js"></script>
+  
+  <%/* Load example modules  */%>
+  <script type="text/javascript" src="/example/example.client.module.js"></script>
+  <script type="text/javascript" src="/example/controllers/example.client.controller.js"></script>
+  <script type="text/javascript" src="/example/config/example.client.routes.js"></script>
+  
+  <%/* Load 'users' modules  */%>
+  <script type="text/javascript" src="/users/users.client.module.js"></script>
+  <script type="text/javascript" src="/users/services/authentication.client.service.js"></script>
+  
+  <%/* Load chat modules  */%>
+  <script type="text/javascript" src="/chat/chat.client.module.js"></script>
+  <script type="text/javascript" src="/chat/services/socket.client.service.js"></script>
+  <script type="text/javascript" src="/chat/controllers/chat.client.controller.js"></script>
+  <script type="text/javascript" src="/chat/config/chat.client.routes.js"></script>
+  
+  <script type="text/javascript" src="/application.js"></script>
+    <br>
+      <img src="img/doglogo.JPG" alt="Logo">
+  </body>
+</html>
