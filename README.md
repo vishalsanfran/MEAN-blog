@@ -2,8 +2,9 @@
 Blog using the MEAN stack, including authentication for facebook, Twitter, Linkedin
 
 Notable NPM modules:
-Passport for OAuth 2.0
-Mongoose ORM for MongoDB
+
+* Passport for OAuth 2.0
+* Mongoose ORM for MongoDB
 
 For a change, I developed this on the Cloud9 IDE. (http://c9.io)
 
